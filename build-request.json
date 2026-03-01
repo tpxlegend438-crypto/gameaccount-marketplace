@@ -1,0 +1,40 @@
+{
+  "kind": "build_request",
+  "title": "Rename app title to 'GAME BAZAR'",
+  "projectName": "Game Bazar",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-23",
+      "text": "Update the app title/branding displayed in the header (Layout.tsx logo/title text) and the HTML page title (frontend/index.html <title> tag) from the current name ('GameVault' / 'GameAccount Marketplace') to 'GAME BAZAR'. The selected element is the <h1> in the main browse page hero banner — update that text to 'GAME BAZAR' as well. Ensure all visible instances of the old app name across the UI are replaced with 'GAME BAZAR'.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "GAME BAZAR"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The browser tab title reads 'GAME BAZAR'.",
+        "The sticky header logo/title text reads 'GAME BAZAR'.",
+        "The hero banner <h1> on the Browse page reads 'GAME BAZAR'.",
+        "No visible instance of the old app name ('GameVault', 'GameAccount Marketplace', or similar) remains in the UI."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files listed under frontend.immutablePaths.",
+    "Do not change any backend logic, data models, or admin principal values."
+  ],
+  "nonGoals": [
+    "Changing the visual theme, colors, or layout.",
+    "Updating the admin principal or authentication logic.",
+    "Adding or removing any features."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

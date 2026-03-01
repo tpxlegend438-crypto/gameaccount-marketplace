@@ -1,0 +1,34 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Rename app title to 'GAME BAZAR'",
+  "requirements": [
+    {
+      "id": "REQ-23",
+      "summary": "Update all visible app branding from 'GameVault' / 'GameAccount Marketplace' to 'GAME BAZAR' across the UI including HTML page title, header logo/title, and hero banner text",
+      "acceptanceCriteria": [
+        "The browser tab title reads 'GAME BAZAR'.",
+        "The sticky header logo/title text reads 'GAME BAZAR'.",
+        "The hero banner <h1> on the Browse page reads 'GAME BAZAR'.",
+        "No visible instance of the old app name ('GameVault', 'GameAccount Marketplace', or similar) remains in the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the <title> tag from 'GameAccount Marketplace' to 'GAME BAZAR' to change the browser tab title."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update the logo/title text in the sticky header from 'GameVault' to 'GAME BAZAR' to reflect the new app branding."
+        },
+        {
+          "path": "frontend/src/pages/BrowsePage.tsx",
+          "operation": "modify",
+          "description": "Update the hero banner <h1> text to 'GAME BAZAR' to match the new app name and ensure consistency across the UI."
+        }
+      ]
+    }
+  ]
+}

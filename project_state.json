@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 15,
+  "summary": "Mobile-first website for buying and selling game accounts. Platform similar to OLX where only an admin user can list/sell/delete game accounts, buyers can browse listings, and both parties can chat with photo sharing. Clicking 'Buy' redirects to a chat with the seller. Admin is identified by Internet Identity principal 'rokdy-ukica-uacon-xqpk6-46vhi-5fxyu-xqozt-pz437-gqggt-qctjn-lqe'.",
+  "architectural_notes": [
+    "Mobile-first design is the primary target; desktop is secondary",
+    "Chat system must support image/photo uploads between users"
+  ],
+  "known_issues": [
+    "Admin principal '3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe' is not being recognized correctly at runtime — admin features (Sell tab, Create Listing, Delete) are inaccessible"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-build-a-mobile-first-browse-home-screen-that-displays-all-active-game-account-listings-as-cards-each-card-shows-the-game-name-account-preview-price-and-a-thumbnail-photo-include-a-search-bar-to-filter-listings-by-game-name",
+      "title": "Build a mobile-first Browse/Home screen that displays all active game account listings as cards. Each card shows the game name, account preview, price, and a thumbnail photo. Include a search bar to filter listings by game name.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-listing-detail-screen-accessible-by-tapping-a-listing-card-it-must-display-all-listing-details-game-name-full-description-price-all-photos-in-a-scrollable-gallery-seller-info-and-include-a-prominent-buy-chat-with-seller-button",
+      "title": "Build a Listing Detail screen accessible by tapping a listing card. It must display all listing details (game name, full description, price, all photos in a scrollable gallery, seller info) and include a prominent 'Buy / Chat with Seller' button.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-navigation-tapping-the-buy-chat-with-seller-button-on-a-listing-detail-page-opens-the-chat-screen-for-that-listing-creating-a-new-chat-thread-if-one-does-not-already-exist",
+      "title": "Implement navigation: tapping the 'Buy / Chat with Seller' button on a listing detail page opens the Chat screen for that listing, creating a new chat thread if one does not already exist.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-chat-screen-that-displays-message-history-between-buyer-and-seller-for-a-listing-support-sending-text-messages-and-attaching-a-photo-via-file-picker-display-messages-in-a-chat-bubble-layout-with-sender-identity-and-timestamp-show-the-listing-title-at-the-top-of-the-chat-for-context",
+      "title": "Build a Chat screen that displays message history between buyer and seller for a listing. Support sending text messages and attaching a photo (via file picker). Display messages in a chat-bubble layout with sender identity and timestamp. Show the listing title at the top of the chat for context.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-sell-create-listing-screen-allowing-authenticated-sellers-to-post-a-new-game-account-for-sale-the-form-must-collect-game-name-account-details-description-asking-price-and-up-to-5-photos-via-file-picker-submit-creates-the-listing-in-the-backend",
+      "title": "Build a 'Sell' / Create Listing screen allowing authenticated sellers to post a new game account for sale. The form must collect: game name, account details/description, asking price, and up to 5 photos (via file picker). Submit creates the listing in the backend.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-internet-identity-authentication-unauthenticated-users-can-browse-listings-but-must-log-in-to-post-a-listing-send-messages-or-initiate-a-chat",
+      "title": "Implement Internet Identity authentication. Unauthenticated users can browse listings but must log in to post a listing, send messages, or initiate a chat.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-mobile-first-visual-theme-across-the-entire-app-use-a-dark-high-contrast-gaming-aesthetic-with-neon-accent-colors-e-g-electric-green-or-orange-bold-typography-card-based-layouts-and-a-sticky-bottom-navigation-bar-with-tabs-for-browse-my-listings-chats-and-profile-ensure-all-screens-are-optimized-for-small-360px-screens",
+      "title": "Apply a cohesive mobile-first visual theme across the entire app. Use a dark, high-contrast gaming aesthetic with neon accent colors (e.g., electric green or orange), bold typography, card-based layouts, and a sticky bottom navigation bar with tabs for Browse, My Listings, Chats, and Profile. Ensure all screens are optimized for small (360px+) screens.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-frontend-restrict-access-to-the-sell-create-listing-screen-and-all-listing-creation-ui-to-the-admin-user-only-non-admin-authenticated-users-and-unauthenticated-users-must-not-see-the-sell-tab-in-the-bottom-navigation-bar-nor-be-able-to-navigate-to-the-createlistingpage-if-a-non-admin-user-somehow-reaches-the-route-display-an-access-denied-message-instead-of-the-form-the-admin-is-identified-by-the-internet-identity-principal-that-corresponds-to-the-gmail-account-captainbl1z3-00-gmail-com-store-this-principal-as-a-constant-and-use-it-for-the-frontend-admin-check",
+      "title": "On the frontend, restrict access to the 'Sell' / Create Listing screen and all listing-creation UI to the admin user only. Non-admin authenticated users and unauthenticated users must not see the 'Sell' tab in the bottom navigation bar, nor be able to navigate to the CreateListingPage. If a non-admin user somehow reaches the route, display an 'Access Denied' message instead of the form. The admin is identified by the Internet Identity principal that corresponds to the Gmail account 'captainbl1z3.00@gmail.com'; store this principal as a constant and use it for the frontend admin check.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-admin-profile-authentication-issue-so-that-the-admin-user-identified-by-the-hardcoded-admin-principal-constant-is-correctly-recognized-across-the-app-the-useisadmin-hook-must-reliably-return-true-for-the-admin-principal-investigate-and-resolve-any-mismatch-between-the-stored-admin-principal-constant-and-the-actual-internet-identity-principal-being-returned-at-runtime-ensuring-the-admin-can-access-the-sell-tab-create-listing-page-and-admin-only-ui-without-being-treated-as-a-regular-user",
+      "title": "Fix the admin profile/authentication issue so that the admin user (identified by the hardcoded admin principal constant) is correctly recognized across the app. The `useIsAdmin` hook must reliably return `true` for the admin principal. Investigate and resolve any mismatch between the stored admin principal constant and the actual Internet Identity principal being returned at runtime, ensuring the admin can access the Sell tab, Create Listing page, and admin-only UI without being treated as a regular user.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rename-the-my-listings-tab-in-the-bottom-navigation-bar-and-all-related-ui-labels-to-cart-update-the-tab-icon-and-label-in-bottomnav-tsx-the-page-title-in-mylistingspage-tsx-and-any-other-references-to-my-listings-in-the-ui",
+      "title": "Rename the 'My Listings' tab in the bottom navigation bar and all related UI labels to 'Cart'. Update the tab icon and label in `BottomNav.tsx`, the page title in `MyListingsPage.tsx`, and any other references to 'My Listings' in the UI.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-chats-section-accessible-to-all-authenticated-users-not-just-admin-as-a-tab-in-the-bottom-navigation-bar-this-screen-must-list-all-of-the-current-user-s-chat-threads-showing-the-listing-title-and-the-last-message-preview-for-each-thread-tapping-a-chat-thread-navigates-to-the-existing-chatpage-for-that-listing-unauthenticated-users-who-tap-the-chats-tab-should-be-prompted-to-log-in-via-authguard",
+      "title": "Add a 'Chats' section accessible to all authenticated users (not just admin) as a tab in the bottom navigation bar. This screen must list all of the current user's chat threads, showing the listing title and the last message preview for each thread. Tapping a chat thread navigates to the existing ChatPage for that listing. Unauthenticated users who tap the Chats tab should be prompted to log in via AuthGuard.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-delete-button-to-the-listing-cards-and-or-the-listing-detail-page-that-is-visible-only-to-the-admin-user-tapping-it-calls-the-deletelisting-backend-function-for-that-listing-on-success-the-listing-is-removed-from-the-browse-grid-and-any-cached-listing-queries-are-invalidated-non-admin-users-must-not-see-the-delete-button",
+      "title": "Add a Delete button to the listing cards and/or the Listing Detail page that is visible only to the admin user. Tapping it calls the `deleteListing` backend function for that listing. On success, the listing is removed from the browse grid and any cached listing queries are invalidated. Non-admin users must not see the Delete button.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hardcoded-admin-principal-constant-in-the-frontend-to-exactly-3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe-this-constant-must-be-used-in-useisadmin-ts-and-every-other-location-in-the-frontend-that-performs-an-admin-identity-check-including-bottomnav-tsx-createlistingpage-tsx-listingdetailpage-tsx-and-mylistingspage-tsx-the-useisadmin-hook-must-return-true-when-the-authenticated-user-s-principal-text-representation-exactly-matches-this-value-perform-a-string-equality-comparison-against-identity-getprincipal-totext-to-eliminate-any-formatting-or-encoding-mismatch",
+      "title": "Update the hardcoded admin principal constant in the frontend to exactly '3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe'. This constant must be used in `useIsAdmin.ts` and every other location in the frontend that performs an admin identity check (including `BottomNav.tsx`, `CreateListingPage.tsx`, `ListingDetailPage.tsx`, and `MyListingsPage.tsx`). The `useIsAdmin` hook must return `true` when the authenticated user's principal text representation exactly matches this value. Perform a string-equality comparison against `identity.getPrincipal().toText()` to eliminate any formatting or encoding mismatch.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hardcoded-admin-principal-constant-in-the-frontend-to-exactly-rokdy-ukica-uacon-xqpk6-46vhi-5fxyu-xqozt-pz437-gqggt-qctjn-lqe-this-constant-must-be-updated-in-frontend-src-hooks-useisadmin-ts-and-every-other-location-in-the-frontend-that-performs-an-admin-identity-check-including-frontend-src-components-bottomnav-tsx-frontend-src-pages-createlistingpage-tsx-frontend-src-pages-listingdetailpage-tsx-and-frontend-src-pages-mylistingspage-tsx-the-useisadmin-hook-must-return-true-when-the-authenticated-user-s-principal-text-representation-exactly-matches-this-value-via-string-equality-comparison-against-identity-getprincipal-totext",
+      "title": "Update the hardcoded admin principal constant in the frontend to exactly 'rokdy-ukica-uacon-xqpk6-46vhi-5fxyu-xqozt-pz437-gqggt-qctjn-lqe'. This constant must be updated in `frontend/src/hooks/useIsAdmin.ts` and every other location in the frontend that performs an admin identity check, including `frontend/src/components/BottomNav.tsx`, `frontend/src/pages/CreateListingPage.tsx`, `frontend/src/pages/ListingDetailPage.tsx`, and `frontend/src/pages/MyListingsPage.tsx`. The `useIsAdmin` hook must return `true` when the authenticated user's principal text representation exactly matches this value via string-equality comparison against `identity.getPrincipal().toText()`.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-title-branding-displayed-in-the-header-layout-tsx-logo-title-text-and-the-html-page-title-frontend-index-html-title-tag-from-the-current-name-gamevault-gameaccount-marketplace-to-game-bazar-the-selected-element-is-the-h1-in-the-main-browse-page-hero-banner-update-that-text-to-game-bazar-as-well-ensure-all-visible-instances-of-the-old-app-name-across-the-ui-are-replaced-with-game-bazar",
+      "title": "Update the app title/branding displayed in the header (Layout.tsx logo/title text) and the HTML page title (frontend/index.html <title> tag) from the current name ('GameVault' / 'GameAccount Marketplace') to 'GAME BAZAR'. The selected element is the <h1> in the main browse page hero banner — update that text to 'GAME BAZAR' as well. Ensure all visible instances of the old app name across the UI are replaced with 'GAME BAZAR'.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Game account listings – sellers can post accounts for sale with details and photos",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Browse/search listings page for buyers to discover game accounts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "In-app chat between buyer and seller with photo sharing support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "'Buy' button on listing redirects user to chat section with the seller",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Mobile-first responsive UI optimized for small screens",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create a backend data model and API for game account listings. Each listing must store: seller principal, game name, account level/details description, asking price, up to 5 photo references, status (active/sold), and creation timestamp. Expose functions to create, read, list, and mark listings as sold.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create a backend chat system that supports conversations between a buyer and a seller tied to a specific listing. Each chat message must store: sender principal, text content, optional photo reference, and timestamp. Expose functions to open a chat thread per listing, send a message, and retrieve message history.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Only the admin user (captainbl1z3.00@gmail.com) can create/sell listings. Regular users can only browse and buy. Restrict the 'Sell' / Create Listing screen to admin only.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "In the backend, store a hardcoded admin principal identifier derived from the Internet Identity principal associated with the Gmail account 'captainbl1z3.00@gmail.com'. Add an isAdmin() check function that compares the caller's principal against the stored admin principal. Enforce this check on the createListing (and any markSold) function so that only the admin principal can create or manage listings; all other callers receive an #unauthorized error.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Fix admin profile/authentication — admin user (captainbl1z3.00@gmail.com) is not being recognized correctly",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Rename 'My Listings' tab/section to 'Cart' in the bottom navigation and UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add a 'Chats' section visible to all users (not just admin) where they can see their chat conversations with the seller",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Update the hardcoded admin principal to '3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe' in both frontend and backend so admin is correctly recognized",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Admin-only ability to delete product/listings — only the admin can delete a listing from the platform",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Update the hardcoded admin principal constant in the frontend to '3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe'. This constant is used in `useIsAdmin.ts` and anywhere else the admin principal is referenced. Ensure the `useIsAdmin` hook correctly returns `true` when the authenticated user's principal matches this value.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Update the hardcoded admin principal in the backend Motoko actor (`backend/main.mo`) to 'principal \"3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe\"'. Ensure the `isAdmin()` check uses this updated value and that `createListing` and `markSold` continue to enforce admin-only access.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add a `deleteListing` function to the backend Motoko actor that allows only the admin principal to permanently remove a listing by its ID. Non-admin callers must receive an `#unauthorized` error. If the listing does not exist, return a `#notFound` error.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update the hardcoded admin principal in the backend Motoko actor (`backend/main.mo`) to `Principal.fromText(\"3v3vf-nu42c-h446d-xdgv2-nr5x3-hrjgu-o3iff-74con-42u5u-n7x2f-yqe\")`. Ensure the `isAdmin()` function uses this updated value and that `createListing`, `markSold`, and `deleteListing` continue to enforce admin-only access by comparing the caller's principal against this constant.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Update the hardcoded admin principal to 'rokdy-ukica-uacon-xqpk6-46vhi-5fxyu-xqozt-pz437-gqggt-qctjn-lqe' in both frontend (useIsAdmin.ts and all admin checks) and backend (main.mo isAdmin function). Replace all previous admin principal references.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Update the hardcoded admin principal in the backend Motoko actor (`backend/main.mo`) to `Principal.fromText(\"rokdy-ukica-uacon-xqpk6-46vhi-5fxyu-xqozt-pz437-gqggt-qctjn-lqe\")`. Ensure the `isAdmin()` check function uses this updated value and that `createListing`, `markSold`, and `deleteListing` continue to enforce admin-only access by comparing the caller's principal against this constant. Non-admin callers must continue to receive an `#unauthorized` error.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "GameAccount Marketplace",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
